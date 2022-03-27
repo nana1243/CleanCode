@@ -3,6 +3,7 @@ import logging
 
 class DescriptorClass:
     def __get__(self, instance, owner):
+        print(f"__get__(instance:{instance}, owner:{owner})")
         if instance is None:
             return self
         logging.info(
@@ -19,5 +20,6 @@ class ClientClass:
 
 
 if __name__ == "__main__":
+    print(ClientClass.descriptor)
     c = ClientClass()
-    print(c.descriptor is c)
+    print(c.descriptor)
